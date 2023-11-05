@@ -20,7 +20,7 @@
 	
 	```bash
 	> python server.py
-	sln0098 server connected
+	server connected
 	[server] : ready to accept data...
 	```
 	
