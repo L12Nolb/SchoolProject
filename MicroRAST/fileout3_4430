@@ -1,0 +1,266 @@
+Script started on Wed Oct 13 15:41:32 2021
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRAST[0m[27m[24m[Jlois@LOISs-MBP MicroRAST % [K[?2004hM jjflex MicroR.jflex[?2004l
+Reading "MicroR.jflex"
+Constructing NFA : 237 states in NFA
+Converting NFA to DFA : 
+.................................................................................................................
+115 states before minimization, 110 states in minimized DFA
+Old file "MicroRLexer.java" saved as "MicroRLexer.java~"
+Writing code to "MicroRLexer.java"
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRAST[0m[27m[24m[Jlois@LOISs-MBP MicroRAST % [K[?2004hjjavac MicroRAS  Lexer.java[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRAST[0m[27m[24m[Jlois@LOISs-MBP MicroRAST % [K[?2004hjjavac MicroRAST.java[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRAST[0m[27m[24m[Jlois@LOISs-MBP MicroRAST % [K[?2004hjjava MicroRAST <Test1.R[?2004l
+Source Program
+--------------
+
+# Test1.R
+
+# This program tests basic statements and expressions. 
+
+source ("List.R")
+
+main <- function () {
+  x <- as.integer (readline ());
+  y <- as.integer (readline ());
+  q <- 0;
+  r <- x;
+  while (r >= y) {
+    q <- q + 1;
+    r <- r - y;
+  }
+  print (q);
+  print (r);
+}
+
+Abstract Syntax Tree
+--------------------
+
+Parse Tree of Main
+
+
+ ((: (: (: (: (: (: (<- (id x) ( readline)) (<- (id y) ( readline))) (<- (id q) (integer 0))) (<- (id r) (id x))) (while (>= (id r) (id y)) (: (<- (id q) (+ (id q) (integer 1))) (<- (id r) (- (id r) (id y)))))) (print (id q))) (print (id r))))
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRAST[0m[27m[24m[Jlois@LOISs-MBP MicroRAST % [K[?2004hjjava MicroRAST.  <T  Test2.R[?2004l
+Source Program
+--------------
+
+# Test2.R
+
+# This program tests list manipulation operators.
+
+source ("List.R")
+
+main <- function () {
+  r <- 2;
+  my_list <- null ();
+  while (r < 5) {
+    my_list <- cons (r, my_list);
+    r <- r + 1;
+  }
+  h <- head (my_list);
+  my_list_tl <- tail (my_list);
+  print (h);
+  print (my_list_tl);
+}
+
+Abstract Syntax Tree
+--------------------
+
+Parse Tree of Main
+
+
+ ((: (: (: (: (: (: (<- (id r) (integer 2)) (<- (id my_list) (null))) (while (< (id r) (integer 5)) (: (<- (id my_list) (cons (id r) (id my_list))) (<- (id r) (+ (id r) (integer 1)))))) (<- (id h) (Head (id (id my_list)))) (<- (id my_list_tl) (Tail (id (id my_list)))) (print (id h))) (print (id my_list_tl))))
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRAST[0m[27m[24m[Jlois@LOISs-MBP MicroRAST % [K[?2004hjjava MicroRAST <Test3.R[?2004l
+Source Program
+--------------
+
+# Test3.R
+
+# This program tests non-recursive functions.
+
+source ("List.R")
+
+area <- function (x, y, h) {
+  z <- 2 * (x * y + (x * h) + y * h);
+  return (z);
+}
+
+main <- function () {
+  a <- as.integer (readline ());
+  b <- as.integer (readline ());
+  h <- as.integer (readline ());
+  s <- area (a, b, h);
+  print (s);
+}
+
+Abstract Syntax Tree
+--------------------
+
+area PARSE TREE 
+
+
+(: (<- (id z) (* (integer 2) (+ (+ (* (id x) (id y)) (* (id x) (id h))) (* (id y) (id h))))) ) (return (id z)))
+
+
+ 
+
+ Parse Tree of main
+
+ (: (: (: (: (: (<- (id a) ( readline)) (<- (id b) ( readline))) (<- (id h) ( readline))) (<- (id s) (apply area (id a) (id b) (id h)))) (print (id s))))
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRAST[0m[27m[24m[Jlois@LOISs-MBP MicroRAST % [K[?2004hjjava MicroRAST < Test4.R[?2004l
+Source Program
+--------------
+
+# Test4.R
+
+# This program tests recursive functions.
+
+source ("List.R")
+
+facto <- function (x) {
+  if (x == 1) {
+    s <- 1;
+  }
+  else {
+    s <- x * facto (x - 1);
+  }
+  return (s);
+}
+
+main <- function () {
+  i <- as.integer (readline ());
+  fac <- facto (i);
+  print (fac);
+}
+
+Abstract Syntax Tree
+--------------------
+
+facto PARSE TREE 
+
+
+(: (if (= (id x) (integer 1)) (<- (id s) (integer 1)) (<- (id s) (* (id x) (apply facto (- (id x) (integer 1)))))) ) (return (id s)))
+
+
+ 
+
+ Parse Tree of main
+
+ (: (: (: (<- (id i) ( readline)) (<- (id fac) (apply facto (id i)))) (print (id fac))))
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRAST[0m[27m[24m[Jlois@LOISs-MBP MicroRAST % [K[?2004hjjava MicroRAST <Test5.R[?2004l
+Source Program
+--------------
+
+# Test5.R
+
+# This program tests recursive functions on lists.
+
+source ("List.R")
+
+cons_my_list <- function (r, my_list) {
+  if (r <= 10) {
+    my_list <- cons (r, my_list);
+    my_list <- cons_my_list (r + 1, my_list);
+  }
+  return (my_list);
+}
+
+main <- function () {
+# r <- as.integer (readline ());
+# my_list <- null ();
+# my_list <- cons_my_list (r, my_list);
+# print (my_list);
+  print (cons_my_list (as.integer (readline ()), null ())); # nested function calls
+}
+
+Abstract Syntax Tree
+--------------------
+
+cons_my_list PARSE TREE 
+
+
+(: (if (<= (id r) (integer 10)) (: (<- (id my_list) (cons (id r) (id my_list))) (<- (id my_list) (apply cons_my_list ((+ (id r) (integer 1))))))) ) (return (id my_list)))
+
+
+ 
+
+ Parse Tree of main
+
+ (: (print (apply cons_my_list (( readline)))))
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRAST[0m[27m[24m[Jlois@LOISs-MBP MicroRAST % [K[?2004hjjava MicroRAST < Test6.R[?2004l
+Source Program
+--------------
+
+# Test6.R
+
+# This program tests two recursive functions on lists.
+
+source ("List.R")
+
+cons_a_list <- function (r, list) {
+  my_list <- list;
+  if (r != 0) {
+    my_list <- cons_a_list (r - 1, cons (r, list));
+  }
+  return (my_list);
+}
+
+equal <- function (list1, list2) {
+  if (length (list1) != length (list2)) {
+    result <- 0;
+  }
+  else {
+    if (length (list1) == 0 && length (list2) == 0) {
+      result <- 1;
+    }
+    else {
+      if (head (list1) != head (list2)) {
+        result <- 0;
+      }
+      else {
+        result <- equal (tail (list1), tail (list2));
+      }
+    }
+  }
+  return (result);
+}
+
+main <- function () {
+  r <- as.integer (readline ());
+  my_list <- null ();
+  l1 <- cons_a_list (r, my_list);
+  l2 <- cons_a_list (r, my_list);  
+  l3 <- cons_a_list (r - 1, my_list);  
+  l1_eq_l2 <- equal (l1, l2);
+  l1_eq_l3 <- equal (l1, l3);
+  print (l1_eq_l2);
+  print (l1_eq_l3);
+}
+
+Abstract Syntax Tree
+--------------------
+
+cons_a_list PARSE TREE 
+
+
+(: (<- (id my_list) (id list)) (if (!= (id r) (integer 0)) (<- (id my_list) (apply cons_a_list ((- (id r) (integer 1)))))) ) (return (id my_list)))
+
+
+equal PARSE TREE 
+
+
+(: (if (!= (apply length (id list1)) (apply length (id list2))) (<- (id result) (integer 0)) (if (&& (= (apply length (id list1)) (integer 0)) (= (apply length (id list2)) (integer 0))) (<- (id result) (integer 1)) (if (!= (Head (id (id list1)) (Head (id (id list2))) (<- (id result) (integer 0)) (<- (id result) (apply equal ((Tail (id (id list1)))))))) ) (return (id result)))
+
+
+ 
+
+ Parse Tree of main
+
+ (: (: (: (: (: (: (: (: (: (<- (id r) ( readline)) (<- (id my_list) (null))) (<- (id l1) (apply cons_a_list ((id r))))) (<- (id l2) (apply cons_a_list ((id r))))) (<- (id l3) (apply cons_a_list ((- (id r) (integer 1)))))) (<- (id l1_eq_l2) (apply equal ((id l1))))) (<- (id l1_eq_l3) (apply equal ((id l1))))) (print (id l1_eq_l2))) (print (id l1_eq_l3))))
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRAST[0m[27m[24m[Jlois@LOISs-MBP MicroRAST % [K[?2004heexit[?2004l
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
+Deleting expired sessions...      93 completed.
+
+Script done on Wed Oct 13 15:45:27 2021
