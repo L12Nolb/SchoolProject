@@ -1,0 +1,781 @@
+Script started on Tue Sep 14 20:49:59 2021
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MacBook-Pro.local/Users/lois/Documents/MicroR[0m[27m[24m[Jlois@LOISs-MacBook-Pro MicroR % [K[?2004hscript MicroRLex.out[20Djava[P[P[10C < Test3.R6[2C5[2C4[2C2[2C1[2C[?2004l
+Source Program
+--------------
+
+# Test1.R
+
+# This program tests basic statements and expressions. 
+
+source ("List.R")
+
+main <- function () {
+  x <- as.integer (readline ());
+  y <- as.integer (readline ());
+  q <- 0;
+  r <- x;
+  while (r >= y) {
+    q <- q + 1;
+    r <- r - y;
+  }
+  print (q);
+  print (r);
+}
+List of Tokens
+--------------
+
+LCPAREN
+(keyword, source) 
+(operator, () 
+(string, "List.R") 
+(operator, )) 
+(keyword, main) 
+(operator, <) 
+(operator, -) 
+(keyword, function) 
+(operator, () 
+(operator, )) 
+(punctuation, {) 
+(identifier, x) 
+(operator, <) 
+(operator, -) 
+(keyword, as.integer) 
+(operator, () 
+(keyword, readline) 
+(operator, () 
+(operator, )) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, y) 
+(operator, <) 
+(operator, -) 
+(keyword, as.integer) 
+(operator, () 
+(keyword, readline) 
+(operator, () 
+(operator, )) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, q) 
+(operator, <) 
+(operator, -) 
+(integer, 0) 
+(punctuation, ;) 
+(identifier, r) 
+(operator, <) 
+(operator, -) 
+(identifier, x) 
+(punctuation, ;) 
+(keyword, while) 
+(operator, () 
+(identifier, r) 
+(operator, >=) 
+(identifier, y) 
+(operator, )) 
+(punctuation, {) 
+(identifier, q) 
+(operator, <) 
+(operator, -) 
+(identifier, q) 
+(operator, +) 
+(integer, 1) 
+(punctuation, ;) 
+(identifier, r) 
+(operator, <) 
+(operator, -) 
+(identifier, r) 
+(operator, -) 
+(identifier, y) 
+(punctuation, ;) 
+(punctuation, }) 
+(keyword, print) 
+(operator, () 
+(identifier, q) 
+(operator, )) 
+(punctuation, ;) 
+(keyword, print) 
+(operator, () 
+(identifier, r) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MacBook-Pro.local/Users/lois/Documents/MicroR[0m[27m[24m[Jlois@LOISs-MacBook-Pro MicroR % [K[?2004hjava MicroRLex < Test1.R[24Dscript MicroRLex.out    [20Djava[P[P[10C < Test3.R6[2C5[2C4[2C2[2C1[2C[20Dc MicroRLex.java    [20Djflex[7C.jflex  [18Djavac[7CLex.java[16D[P[10C < Test1.R2[2C[?2004l
+Source Program
+--------------
+
+# Test2.R
+
+# This program tests list manipulation operators.
+
+source ("List.R")
+
+main <- function () {
+  r <- 2;
+  my_list <- null ();
+  while (r < 5) {
+    my_list <- cons (r, my_list);
+    r <- r + 1;
+  }
+  h <- head (my_list);
+  my_list_tl <- tail (my_list);
+  print (h);
+  print (my_list_tl);
+}
+List of Tokens
+--------------
+
+LCPAREN
+(keyword, source) 
+(operator, () 
+(string, "List.R") 
+(operator, )) 
+(keyword, main) 
+(operator, <) 
+(operator, -) 
+(keyword, function) 
+(operator, () 
+(operator, )) 
+(punctuation, {) 
+(identifier, r) 
+(operator, <) 
+(operator, -) 
+(integer, 2) 
+(punctuation, ;) 
+(identifier, my_list) 
+(operator, <) 
+(operator, -) 
+(keyword, null) 
+(operator, () 
+(operator, )) 
+(punctuation, ;) 
+(keyword, while) 
+(operator, () 
+(identifier, r) 
+(operator, <) 
+(integer, 5) 
+(operator, )) 
+(punctuation, {) 
+(identifier, my_list) 
+(operator, <) 
+(operator, -) 
+(keyword, cons) 
+(operator, () 
+(identifier, r) 
+(punctuation, ,) 
+(identifier, my_list) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, r) 
+(operator, <) 
+(operator, -) 
+(identifier, r) 
+(operator, +) 
+(integer, 1) 
+(punctuation, ;) 
+(punctuation, }) 
+(identifier, h) 
+(operator, <) 
+(operator, -) 
+(keyword, head) 
+(operator, () 
+(identifier, my_list) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, my_list_tl) 
+(operator, <) 
+(operator, -) 
+(keyword, tail) 
+(operator, () 
+(identifier, my_list) 
+(operator, )) 
+(punctuation, ;) 
+(keyword, print) 
+(operator, () 
+(identifier, h) 
+(operator, )) 
+(punctuation, ;) 
+(keyword, print) 
+(operator, () 
+(identifier, my_list_tl) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MacBook-Pro.local/Users/lois/Documents/MicroR[0m[27m[24m[Jlois@LOISs-MacBook-Pro MicroR % [K[?2004hjava MicroRLex < Test2.R1[2C[24Dscript MicroRLex.out    [20Djava[P[P[10C < Test3.R[?2004l
+Source Program
+--------------
+
+# Test3.R
+
+# This program tests non-recursive functions.
+
+source ("List.R")
+
+area <- function (x, y, h) {
+  z <- 2 * (x * y + (x * h) + y * h);
+  return (z);
+}
+
+List of Tokens
+--------------
+
+LCPAREN
+(keyword, source) 
+(operator, () 
+(string, "List.R") 
+(operator, )) 
+(identifier, area) 
+(operator, <) 
+(operator, -) 
+(keyword, function) 
+(operator, () 
+(identifier, x) 
+(punctuation, ,) 
+(identifier, y) 
+(punctuation, ,) 
+(identifier, h) 
+(operator, )) 
+(punctuation, {) 
+(identifier, z) 
+(operator, <) 
+(operator, -) 
+(integer, 2) 
+(operator, *) 
+(operator, () 
+(identifier, x) 
+(operator, *) 
+(identifier, y) 
+(operator, +) 
+(operator, () 
+(identifier, x) 
+(operator, *) 
+(identifier, h) 
+(operator, )) 
+(operator, +) 
+(identifier, y) 
+(operator, *) 
+(identifier, h) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, return) 
+(operator, () 
+(identifier, z) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MacBook-Pro.local/Users/lois/Documents/MicroR[0m[27m[24m[Jlois@LOISs-MacBook-Pro MicroR % [K[?2004hjava MicroRLex < Test3.R2[2C1[2C[24Dscript MicroRLex.out    [20Djava[P[P[10C < Test3.R6[2C5[2C4[2C5[2C6[2C3[2C[24Dscript MicroRLex.out    [20Djava[P[P[10C < Test1.R2[2C3[2C[24D                        [24Djava MicroRLex < Test3.R2[2C1[2C[24Dscript MicroRLex.out    [20Djava[P[P[10C < Test3.R6[2C5[2C4[2C2[2C4[2C[?2004l
+Source Program
+--------------
+
+# Test4.R
+
+# This program tests recursive functions.
+
+facto <- function (x) {
+  if (x == 1) {
+    s <- 1;
+  }
+  else {
+    s <- x * facto (x - 1);
+  }
+  return (s);
+}
+
+main <- function () {
+  i <- as.integer (readline ());
+  fac <- facto (i);
+  print (fac);
+}
+List of Tokens
+--------------
+
+LCPAREN
+(identifier, facto) 
+(operator, <) 
+(operator, -) 
+(keyword, function) 
+(operator, () 
+(identifier, x) 
+(operator, )) 
+(punctuation, {) 
+(keyword, if) 
+(operator, () 
+(identifier, x) 
+(operator, =) 
+(operator, =) 
+(integer, 1) 
+(operator, )) 
+(punctuation, {) 
+(identifier, s) 
+(operator, <) 
+(operator, -) 
+(integer, 1) 
+(punctuation, ;) 
+(punctuation, }) 
+(keyword, else) 
+(punctuation, {) 
+(identifier, s) 
+(operator, <) 
+(operator, -) 
+(identifier, x) 
+(operator, *) 
+(identifier, facto) 
+(operator, () 
+(identifier, x) 
+(operator, -) 
+(integer, 1) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+(identifier, return) 
+(operator, () 
+(identifier, s) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+(keyword, main) 
+(operator, <) 
+(operator, -) 
+(keyword, function) 
+(operator, () 
+(operator, )) 
+(punctuation, {) 
+(identifier, i) 
+(operator, <) 
+(operator, -) 
+(keyword, as.integer) 
+(operator, () 
+(keyword, readline) 
+(operator, () 
+(operator, )) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, fac) 
+(operator, <) 
+(operator, -) 
+(identifier, facto) 
+(operator, () 
+(identifier, i) 
+(operator, )) 
+(punctuation, ;) 
+(keyword, print) 
+(operator, () 
+(identifier, fac) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MacBook-Pro.local/Users/lois/Documents/MicroR[0m[27m[24m[Jlois@LOISs-MacBook-Pro MicroR % [K[?2004hjava MicroRLex < Test4.R3[2C2[2C1[2C[24Dscript MicroRLex.out    [20Djava[P[P[10C < Test3.R6[2C5[2C[?2004l
+Source Program
+--------------
+
+# Test5.R
+
+# This program tests recursive functions on lists.
+
+source ("List.R")
+
+cons_my_list <- function (r, my_list) {
+  if (r <= 10) {
+    my_list <- cons (r, my_list);
+    my_list <- cons_my_list (r + 1, my_list);
+  }
+  return (my_list);
+}
+
+main <- function () {
+# r <- as.integer (readline ());
+# my_list <- null ();
+# my_list <- cons_my_list (r, my_list);
+# print (my_list);
+  print (cons_my_list (as.integer (readline ()), null ())); # nested function calls
+}
+List of Tokens
+--------------
+
+LCPAREN
+(keyword, source) 
+(operator, () 
+(string, "List.R") 
+(operator, )) 
+(identifier, cons_my_list) 
+(operator, <) 
+(operator, -) 
+(keyword, function) 
+(operator, () 
+(identifier, r) 
+(punctuation, ,) 
+(identifier, my_list) 
+(operator, )) 
+(punctuation, {) 
+(keyword, if) 
+(operator, () 
+(identifier, r) 
+(operator, <=) 
+(integer, 10) 
+(operator, )) 
+(punctuation, {) 
+(identifier, my_list) 
+(operator, <) 
+(operator, -) 
+(keyword, cons) 
+(operator, () 
+(identifier, r) 
+(punctuation, ,) 
+(identifier, my_list) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, my_list) 
+(operator, <) 
+(operator, -) 
+(identifier, cons_my_list) 
+(operator, () 
+(identifier, r) 
+(operator, +) 
+(integer, 1) 
+(punctuation, ,) 
+(identifier, my_list) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+(identifier, return) 
+(operator, () 
+(identifier, my_list) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+(keyword, main) 
+(operator, <) 
+(operator, -) 
+(keyword, function) 
+(operator, () 
+(operator, )) 
+(punctuation, {) 
+(keyword, print) 
+(operator, () 
+(identifier, cons_my_list) 
+(operator, () 
+(keyword, as.integer) 
+(operator, () 
+(keyword, readline) 
+(operator, () 
+(operator, )) 
+(operator, )) 
+(punctuation, ,) 
+(keyword, null) 
+(operator, () 
+(operator, )) 
+(operator, )) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MacBook-Pro.local/Users/lois/Documents/MicroR[0m[27m[24m[Jlois@LOISs-MacBook-Pro MicroR % [K[?2004hjava MicroRLex < Test5.R4[2C3[2C2[2C1[2C[24Dscript MicroRLex.out    [20Djava[P[P[10C < Test3.R6[2C5[2C6[2C[?2004l
+Source Program
+--------------
+
+# Test6.R
+
+# This program tests two recursive functions on lists.
+
+source ("List.R")
+
+cons_a_list <- function (r, list) {
+  my_list <- list;
+  if (r != 0) {
+    my_list <- cons_a_list (r - 1, cons (r, list));
+  }
+  return (my_list);
+}
+
+equal <- function (list1, list2) {
+  if (length (list1) != length (list2)) {
+    result <- 0;
+  }
+  else {
+    if (length (list1) == 0 && length (list2) == 0) {
+      result <- 1;
+    }
+    else {
+      if (head (list1) != head (list2)) {
+        result <- 0;
+      }
+      else {
+        result <- equal (tail (list1), tail (list2));
+      }
+    }
+  }
+  return (result);
+}
+
+main <- function () {
+  r <- as.integer (readline ());
+  my_list <- null ();
+  l1 <- cons_a_list (r, my_list);
+  l2 <- cons_a_list (r, my_list);  
+  l3 <- cons_a_list (r - 1, my_list);  
+  l1_eq_l2 <- equal (l1, l2);
+  l1_eq_l3 <- equal (l1, l3);
+  print (l1_eq_l2);
+  print (l1_eq_l3);
+}
+
+List of Tokens
+--------------
+
+LCPAREN
+(keyword, source) 
+(operator, () 
+(string, "List.R") 
+(operator, )) 
+(identifier, cons_a_list) 
+(operator, <) 
+(operator, -) 
+(keyword, function) 
+(operator, () 
+(identifier, r) 
+(punctuation, ,) 
+(identifier, list) 
+(operator, )) 
+(punctuation, {) 
+(identifier, my_list) 
+(operator, <) 
+(operator, -) 
+(identifier, list) 
+(punctuation, ;) 
+(keyword, if) 
+(operator, () 
+(identifier, r) 
+(operator, !) 
+(operator, =) 
+(integer, 0) 
+(operator, )) 
+(punctuation, {) 
+(identifier, my_list) 
+(operator, <) 
+(operator, -) 
+(identifier, cons_a_list) 
+(operator, () 
+(identifier, r) 
+(operator, -) 
+(integer, 1) 
+(punctuation, ,) 
+(keyword, cons) 
+(operator, () 
+(identifier, r) 
+(punctuation, ,) 
+(identifier, list) 
+(operator, )) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+(identifier, return) 
+(operator, () 
+(identifier, my_list) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+(identifier, equal) 
+(operator, <) 
+(operator, -) 
+(keyword, function) 
+(operator, () 
+(identifier, list1) 
+(punctuation, ,) 
+(identifier, list2) 
+(operator, )) 
+(punctuation, {) 
+(keyword, if) 
+(operator, () 
+(identifier, length) 
+(operator, () 
+(identifier, list1) 
+(operator, )) 
+(operator, !) 
+(operator, =) 
+(identifier, length) 
+(operator, () 
+(identifier, list2) 
+(operator, )) 
+(operator, )) 
+(punctuation, {) 
+(identifier, result) 
+(operator, <) 
+(operator, -) 
+(integer, 0) 
+(punctuation, ;) 
+(punctuation, }) 
+(keyword, else) 
+(punctuation, {) 
+(keyword, if) 
+(operator, () 
+(identifier, length) 
+(operator, () 
+(identifier, list1) 
+(operator, )) 
+(operator, =) 
+(operator, =) 
+(integer, 0) 
+(operator, &&) 
+(identifier, length) 
+(operator, () 
+(identifier, list2) 
+(operator, )) 
+(operator, =) 
+(operator, =) 
+(integer, 0) 
+(operator, )) 
+(punctuation, {) 
+(identifier, result) 
+(operator, <) 
+(operator, -) 
+(integer, 1) 
+(punctuation, ;) 
+(punctuation, }) 
+(keyword, else) 
+(punctuation, {) 
+(keyword, if) 
+(operator, () 
+(keyword, head) 
+(operator, () 
+(identifier, list1) 
+(operator, )) 
+(operator, !) 
+(operator, =) 
+(keyword, head) 
+(operator, () 
+(identifier, list2) 
+(operator, )) 
+(operator, )) 
+(punctuation, {) 
+(identifier, result) 
+(operator, <) 
+(operator, -) 
+(integer, 0) 
+(punctuation, ;) 
+(punctuation, }) 
+(keyword, else) 
+(punctuation, {) 
+(identifier, result) 
+(operator, <) 
+(operator, -) 
+(identifier, equal) 
+(operator, () 
+(keyword, tail) 
+(operator, () 
+(identifier, list1) 
+(operator, )) 
+(punctuation, ,) 
+(keyword, tail) 
+(operator, () 
+(identifier, list2) 
+(operator, )) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+(punctuation, }) 
+(punctuation, }) 
+(identifier, return) 
+(operator, () 
+(identifier, result) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+(keyword, main) 
+(operator, <) 
+(operator, -) 
+(keyword, function) 
+(operator, () 
+(operator, )) 
+(punctuation, {) 
+(identifier, r) 
+(operator, <) 
+(operator, -) 
+(keyword, as.integer) 
+(operator, () 
+(keyword, readline) 
+(operator, () 
+(operator, )) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, my_list) 
+(operator, <) 
+(operator, -) 
+(keyword, null) 
+(operator, () 
+(operator, )) 
+(punctuation, ;) 
+(identifier, l1) 
+(operator, <) 
+(operator, -) 
+(identifier, cons_a_list) 
+(operator, () 
+(identifier, r) 
+(punctuation, ,) 
+(identifier, my_list) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, l2) 
+(operator, <) 
+(operator, -) 
+(identifier, cons_a_list) 
+(operator, () 
+(identifier, r) 
+(punctuation, ,) 
+(identifier, my_list) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, l3) 
+(operator, <) 
+(operator, -) 
+(identifier, cons_a_list) 
+(operator, () 
+(identifier, r) 
+(operator, -) 
+(integer, 1) 
+(punctuation, ,) 
+(identifier, my_list) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, l1_eq_l2) 
+(operator, <) 
+(operator, -) 
+(identifier, equal) 
+(operator, () 
+(identifier, l1) 
+(punctuation, ,) 
+(identifier, l2) 
+(operator, )) 
+(punctuation, ;) 
+(identifier, l1_eq_l3) 
+(operator, <) 
+(operator, -) 
+(identifier, equal) 
+(operator, () 
+(identifier, l1) 
+(punctuation, ,) 
+(identifier, l3) 
+(operator, )) 
+(punctuation, ;) 
+(keyword, print) 
+(operator, () 
+(identifier, l1_eq_l2) 
+(operator, )) 
+(punctuation, ;) 
+(keyword, print) 
+(operator, () 
+(identifier, l1_eq_l3) 
+(operator, )) 
+(punctuation, ;) 
+(punctuation, }) 
+
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MacBook-Pro.local/Users/lois/Documents/MicroR[0m[27m[24m[Jlois@LOISs-MacBook-Pro MicroR % [K[?2004h[?2004l
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
+Deleting expired sessions...      12 completed.
+
+Script done on Tue Sep 14 20:51:30 2021
