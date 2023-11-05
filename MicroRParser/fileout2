@@ -1,0 +1,189 @@
+Script started on Sun Sep 26 23:40:58 2021
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRParser[0m[27m[24m[Jlois@LOISs-MBP MicroRParser % [K[?2004hjjavac Micror RSyn.java[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRParser[0m[27m[24m[Jlois@LOISs-MBP MicroRParser % [K[?2004hMMricroRSyn < Test1.R[?2004l
+zsh: command not found: MricroRSyn
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRParser[0m[27m[24m[Jlois@LOISs-MBP MicroRParser % [K[?2004hjjava Micror RSyn < Test1.R[?2004l
+Source Program
+--------------
+
+# Test1.R
+
+# This program tests basic statements and expressions. 
+
+source ("List.R")
+
+main <- function () {
+  x <- as.integer (readline ());
+  y <- as.integer (readline ());
+  q <- 0;
+  r <- x;
+  while (r >= y) {
+    q <- q + 1;
+    r <- r - y;
+  }
+  print (q);
+  print (r);
+}
+
+PARSE SUCCESSFUL
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRParser[0m[27m[24m[Jlois@LOISs-MBP MicroRParser % [K[?2004hjava MicroRSyn < Test1.R.R 2.R[?2004l
+Source Program
+--------------
+
+# Test2.R
+
+# This program tests list manipulation operators.
+
+source ("List.R")
+
+main <- function () {
+  r <- 2;
+  my_list <- null ();
+  while (r < 5) {
+    my_list <- cons (r, my_list);
+    r <- r + 1;
+  }
+  h <- head (my_list);
+  my_list_tl <- tail (my_list);
+  print (h);
+  print (my_list_tl);
+}
+
+PARSE SUCCESSFUL
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRParser[0m[27m[24m[Jlois@LOISs-MBP MicroRParser % [K[?2004hjava MicroRSyn < Test2.R.R 3.R[?2004l
+Source Program
+--------------
+
+# Test3.R
+
+# This program tests non-recursive functions.
+
+source ("List.R")
+
+area <- function (x, y, h) {
+  z <- 2 * (x * y + (x * h) + y * h);
+  return (z);
+}
+
+main <- function () {
+  a <- as.integer (readline ());
+  b <- as.integer (readline ());
+  h <- as.integer (readline ());
+  s <- area (a, b, h);
+  print (s);
+}
+
+PARSE SUCCESSFUL
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRParser[0m[27m[24m[Jlois@LOISs-MBP MicroRParser % [K[?2004hjava MicroRSyn < Test3.R.R 4.R[?2004l
+Source Program
+--------------
+
+# Test4.R
+
+# This program tests recursive functions.
+
+source ("List.R")
+
+facto <- function (x) {
+  if (x == 1) {
+    s <- 1;
+  }
+  else {
+    s <- x * facto (x - 1);
+  }
+  return (s);
+}
+
+main <- function () {
+  i <- as.integer (readline ());
+  fac <- facto (i);
+  print (fac);
+}
+
+PARSE SUCCESSFUL
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRParser[0m[27m[24m[Jlois@LOISs-MBP MicroRParser % [K[?2004hjava MicroRSyn < Test4.R[1C.R 5.R[?2004l
+Source Program
+--------------
+
+# Test5.R
+
+# This program tests recursive functions on lists.
+
+source ("List.R")
+
+cons_my_list <- function (r, my_list) {
+  if (r <= 10) {
+    my_list <- cons (r, my_list);
+    my_list <- cons_my_list (r + 1, my_list);
+  }
+  return (my_list);
+}
+
+main <- function () {
+# r <- as.integer (readline ());
+# my_list <- null ();
+# my_list <- cons_my_list (r, my_list);
+# print (my_list);
+  print (cons_my_list (as.integer (readline ()), null ())); # nested function calls
+}s
+
+PARSE SUCCESSFUL
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRParser[0m[27m[24m[Jlois@LOISs-MBP MicroRParser % [K[?2004hjava MicroRSyn < Test5.R.R 6.R[?2004l
+Source Program
+--------------
+
+# Test6.R
+
+# This program tests two recursive functions on lists.
+
+source ("List.R")
+
+cons_a_list <- function (r, list) {
+  my_list <- list;
+  if (r != 0) {
+    my_list <- cons_a_list (r - 1, cons (r, list));
+  }
+  return (my_list);
+}
+
+equal <- function (list1, list2) {
+  if (length (list1) != length (list2)) {
+    result <- 0;
+  }
+  else {
+    if (length (list1) == 0 && length (list2) == 0) {
+      result <- 1;
+    }
+    else {
+      if (head (list1) != head (list2)) {
+        result <- 0;
+      }
+      else {
+        result <- equal (tail (list1), tail (list2));
+      }
+    }
+  }
+  return (result);
+}
+
+main <- function () {
+  r <- as.integer (readline ());
+  my_list <- null ();
+  l1 <- cons_a_list (r, my_list);
+  l2 <- cons_a_list (r, my_list);  
+  l3 <- cons_a_list (r - 1, my_list);  
+  l1_eq_l2 <- equal (l1, l2);
+  l1_eq_l3 <- equal (l1, l3);
+  print (l1_eq_l2);
+  print (l1_eq_l3);
+}
+
+PARSE SUCCESSFUL
+[1m[7m%[27m[1m[0m                                                                                ]7;file://LOISs-MBP.lan/Users/lois/Documents/MicroRParser[0m[27m[24m[Jlois@LOISs-MBP MicroRParser % [K[?2004heexit[?2004l
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
+Deleting expired sessions...      92 completed.
+
+Script done on Sun Sep 26 23:43:32 2021
