@@ -10,7 +10,7 @@ import socket
 
 server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 server.bind(('', 8008))
-print('sln0098 server connected')
+print('server connected')
 print('[server] : ready to accept data...')
 
 while 1:
